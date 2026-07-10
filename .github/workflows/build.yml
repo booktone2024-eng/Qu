@@ -18,6 +18,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # این مرحله فایل‌های غیرضروری برای بیلد تستی را نادیده می‌گیرد
     - name: Build with Gradle
-      run: ./gradlew assembleDebug -x validateSigning -x processDebugGoogleServices
+      # استفاده از دستور 'gradle' به جای './gradlew'
+      # این دستور نیازی به فایل gradlew در پوشه پروژه ندارد
+      run: gradle assembleDebug -x validateSigning -x processDebugGoogleServices
