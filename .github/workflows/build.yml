@@ -18,8 +18,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
+    # در اینجا به جای ./gradlew از دستور gradle استفاده می‌کنیم
+    # که نیازی به فایل gradlew در ریشه پروژه ندارد
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: gradle assembleDebug
