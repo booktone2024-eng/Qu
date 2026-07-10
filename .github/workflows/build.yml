@@ -13,12 +13,12 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: androidx/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
 
     - name: Build with Gradle
-      # استفاده از دستور 'gradle' به جای './gradlew'
-      # این دستور نیازی به فایل gradlew در پوشه پروژه ندارد
-      run: gradle assembleDebug -x validateSigning -x processDebugGoogleServices
+      # در اینجا از دستور دقیق‌تری برای بیلد ماژول app استفاده می‌کنیم
+      # و به جای نادیده گرفتن validateSigning، بیلد را مستقیم روی assembleDebug تنظیم می‌کنیم
+      run: gradle :app:assembleDebug
