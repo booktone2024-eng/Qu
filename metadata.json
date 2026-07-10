@@ -1,0 +1,6 @@
+{
+  "name": "Qorveh 3D",
+  "description": "شبیه‌ساز سه‌بعدی شهر قروه با امکان رانندگی در خیابان‌ها، گشت و گذار در مراکز و مغازه‌ها و تغییر زمان شبانه‌روز.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
