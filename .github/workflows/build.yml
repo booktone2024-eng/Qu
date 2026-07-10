@@ -18,7 +18,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # در اینجا به جای ./gradlew از دستور gradle استفاده می‌کنیم
-    # که نیازی به فایل gradlew در ریشه پروژه ندارد
+    # این مرحله فایل‌های غیرضروری برای بیلد تستی را نادیده می‌گیرد
     - name: Build with Gradle
-      run: gradle assembleDebug
+      run: ./gradlew assembleDebug -x validateSigning -x processDebugGoogleServices
