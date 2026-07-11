@@ -13,12 +13,11 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Set up JDK 17
-      # اصلاح شد: استفاده از actions/setup-java
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
 
     - name: Build with Gradle
-      # در صورتی که فایل gradlew را ندارید، از دستور زیر استفاده کنید:
-      run: gradle :app:assembleDebug
+      # این دستور فایل‌های google-services را نادیده می‌گیرد و امضا را غیرفعال می‌کند
+      run: gradle :app:assembleDebug -x processDebugGoogleServices -x validateSigningDebug
