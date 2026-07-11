@@ -18,6 +18,20 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Generate debug keystore
+      run: |
+        keytool -genkey -v -keystore debug.keystore \
+          -storepass android -alias androiddebugkey \
+          -keypass android -keyalg RSA -keysize 2048 \
+          -validity 10000 \
+          -dname "CN=Android Debug,O=Android,C=US"
+
     - name: Build with Gradle
-      # این دستور فایل‌های google-services را نادیده می‌گیرد و امضا را غیرفعال می‌کند
+      # این دستور فایل‌های google-services را غیرفعال می‌کند
       run: gradle :app:assembleDebug -x processDebugGoogleServices -x validateSigningDebug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
